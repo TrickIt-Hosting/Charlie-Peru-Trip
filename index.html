@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charlie's Fundraising - 3D Printing for Peru World Challenge</title>
+    <meta name="description" content="Support Charlie's journey to Peru with World Challenge by ordering custom 3D printed products. Help raise £5,000 for this life-changing adventure through entrepreneurial 3D printing services.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: 'hsl(0, 0%, 100%)',
+                        foreground: 'hsl(215, 60%, 15%)',
+                        card: 'hsl(0, 0%, 98%)',
+                        'card-foreground': 'hsl(215, 60%, 15%)',
+                        'card-border': 'hsl(0, 0%, 93%)',
+                        primary: 'hsl(185, 70%, 35%)',
+                        'primary-foreground': 'hsl(185, 70%, 98%)',
+                        muted: 'hsl(0, 0%, 92%)',
+                        'muted-foreground': 'hsl(215, 50%, 35%)',
+                        accent: 'hsl(40, 30%, 88%)',
+                        'accent-foreground': 'hsl(215, 60%, 20%)',
+                        'accent-border': 'hsl(40, 25%, 80%)',
+                        border: 'hsl(0, 0%, 89%)',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        /* Hover elevation effects */
+        .hover-elevate {
+            position: relative;
+            transition: all 0.2s ease;
+        }
+
+        .hover-elevate::after {
+            content: "";
+            pointer-events: none;
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            z-index: 999;
+            transition: background-color 0.2s ease;
+        }
+
+        .hover-elevate:hover::after {
+            background-color: rgba(0, 0, 0, 0.03);
+        }
+
+        /* Progress bar animation */
+        .progress-bar {
+            transition: width 0.8s ease-out;
+            width: 0%;
+        }
+
+        .progress-bar.animated {
+            width: var(--progress-width);
+        }
+    </style>
+</head>
+<body class="bg-background text-foreground antialiased">
+
+    <!-- Hero Section -->
+    <div class="relative h-[600px] md:h-[700px] overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('img1.jpg')">
+            <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
+        </div>
+
+        <div class="relative h-full max-w-7xl mx-auto px-6 flex items-center">
+            <div class="max-w-2xl">
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-6">
+                    Help Me Reach Peru
+                </h1>
+                <p class="text-xl md:text-2xl text-white/90 mb-8">
+                    Supporting my World Challenge adventure through custom 3D printing. Every order brings me closer to this life-changing journey.
+                </p>
+                <button onclick="scrollToContact()" class="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-3 rounded-md text-lg font-semibold hover:opacity-90 transition-opacity">
+                    Support My Journey
+                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Progress Bar Section (Sticky) -->
+    <section class="py-16 bg-card sticky top-0 z-10 border-b border-card-border" id="progress-section">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="w-full">
+                <div class="flex justify-between items-baseline mb-3">
+                    <div>
+                        <span class="text-2xl md:text-3xl font-bold text-foreground">£2,089</span>
+                        <span class="text-base text-muted-foreground ml-2">raised</span>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-lg font-semibold text-muted-foreground">£5,000 goal</span>
+                    </div>
+                </div>
+                <div class="w-full h-3 bg-muted rounded-full overflow-hidden">
+                    <div id="progress-bar" class="progress-bar h-full bg-primary rounded-full" style="--progress-width: 41.78%"></div>
+                </div>
+                <p class="text-sm text-muted-foreground mt-2">
+                    42% of fundraising goal reached
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="py-20 bg-background" id="about">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="img2.jpg" alt="Charlie working with 3D printer" class="rounded-md w-full h-auto object-cover">
+                </div>
+                <div>
+                    <h2 class="text-4xl font-bold mb-6">My Story</h2>
+                    <div class="space-y-4 text-lg text-foreground">
+                        <p>
+                            I'm Charlie, and I've been accepted for the World Challenge expedition to Peru. This is an incredible opportunity to explore new cultures, challenge myself, and make a positive impact through community projects.
+                        </p>
+                        <div class="border-l-4 border-primary pl-6 py-2 my-6">
+                            <p class="text-xl font-semibold text-primary">
+                                "I'm combining my passion for 3D printing with my fundraising goal to create something meaningful."
+                            </p>
+                        </div>
+                        <p>
+                            Rather than just asking for donations, I've decided to offer custom 3D printing services. Every product I create helps fund my journey while providing you with unique, personalized items.
+                        </p>
+                        <p>
+                            The £5,000 I'm raising will cover expedition costs, equipment, insurance, and allow me to contribute to community projects in Peru. Your support makes this adventure possible.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3D Printing Services Section -->
+    <section class="py-20 bg-card" id="services">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4">3D Printing Services</h2>
+                <p class="text-xl text-muted-foreground max-w-2xl mx-auto">
+                    Browse my catalog of 3D printed products. Every order supports my fundraising goal and delivers quality custom prints to you.
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Product 1: Custom Figurines -->
+                <div class="bg-background border border-card-border rounded-lg overflow-hidden hover-elevate">
+                    <img src="img3.jpg" alt="Custom Figurines" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Custom Figurines</h3>
+                        <p class="text-base text-muted-foreground mb-4">Personalized characters and models</p>
+                        <p class="text-lg font-semibold text-primary mb-4">From £5</p>
+                        <button onclick="scrollToContact()" class="w-full bg-primary text-primary-foreground px-4 py-2 rounded-md font-semibold hover:opacity-90 transition-opacity">
+                            Order to Support
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 2: Fidget Toys -->
+                <div class="bg-background border border-card-border rounded-lg overflow-hidden hover-elevate">
+                    <img src="img4.jpg" alt="Fidget Toys" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Fidget Toys</h3>
+                        <p class="text-base text-muted-foreground mb-4">Fun and functional fidget items</p>
+                        <p class="text-lg font-semibold text-primary mb-4">£1 - £5</p>
+                        <button onclick="scrollToContact()" class="w-full bg-primary text-primary-foreground px-4 py-2 rounded-md font-semibold hover:opacity-90 transition-opacity">
+                            Order to Support
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 3: Decorative Pieces -->
+                <div class="bg-background border border-card-border rounded-lg overflow-hidden hover-elevate">
+                    <img src="img5.jpg" alt="Decorative Pieces" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Decorative Pieces</h3>
+                        <p class="text-base text-muted-foreground mb-4">Unique home decor items</p>
+                        <p class="text-lg font-semibold text-primary mb-4">From £5</p>
+                        <button onclick="scrollToContact()" class="w-full bg-primary text-primary-foreground px-4 py-2 rounded-md font-semibold hover:opacity-90 transition-opacity">
+                            Order to Support
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 4: Educational Models -->
+                <div class="bg-background border border-card-border rounded-lg overflow-hidden hover-elevate">
+                    <img src="img6.jpg" alt="Educational Models" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Educational Models</h3>
+                        <p class="text-base text-muted-foreground mb-4">Learning aids and puzzles</p>
+                        <p class="text-lg font-semibold text-primary mb-4">TBC - Get in contact</p>
+                        <button onclick="scrollToContact()" class="w-full bg-primary text-primary-foreground px-4 py-2 rounded-md font-semibold hover:opacity-90 transition-opacity">
+                            Order to Support
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 5: Custom Gifts -->
+                <div class="bg-background border border-card-border rounded-lg overflow-hidden hover-elevate">
+                    <img src="img7.jpg" alt="Custom Gifts" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Custom Gifts</h3>
+                        <p class="text-base text-muted-foreground mb-4">Personalized presents</p>
+                        <p class="text-lg font-semibold text-primary mb-4">£5</p>
+                        <button onclick="scrollToContact()" class="w-full bg-primary text-primary-foreground px-4 py-2 rounded-md font-semibold hover:opacity-90 transition-opacity">
+                            Order to Support
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 6: Replacement Parts -->
+                <div class="bg-background border border-card-border rounded-lg overflow-hidden hover-elevate">
+                    <img src="img8.jpg" alt="Replacement Parts" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Replacement Parts</h3>
+                        <p class="text-base text-muted-foreground mb-4">Hard-to-find components</p>
+                        <p class="text-lg font-semibold text-primary mb-4">£5</p>
+                        <button onclick="scrollToContact()" class="w-full bg-primary text-primary-foreground px-4 py-2 rounded-md font-semibold hover:opacity-90 transition-opacity">
+                            Order to Support
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Peru Expedition Section -->
+    <section class="py-20 bg-background">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4">The Peru Expedition</h2>
+                <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+                    World Challenge is an educational charity that takes young people on life-changing expeditions. This summer, I'll be heading to Peru for an unforgettable adventure.
+                </p>
+            </div>
+
+            <!-- Peru Images -->
+            <div class="grid md:grid-cols-3 gap-6 mb-12">
+                <div class="rounded-md overflow-hidden">
+                    <img src="img9.jpg" alt="Peru destination 1" class="w-full h-64 object-cover">
+                </div>
+                <div class="rounded-md overflow-hidden">
+                    <img src="img10.jpg" alt="Peru destination 2" class="w-full h-64 object-cover">
+                </div>
+                <div class="rounded-md overflow-hidden">
+                    <img src="img11.jpg" alt="Peru destination 3" class="w-full h-64 object-cover">
+                </div>
+            </div>
+
+            <!-- Highlights -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-card border border-card-border rounded-lg p-6 text-center">
+                    <div class="inline-flex items-center justify-center w-12 h-12 rounded-md bg-primary/10 text-primary mb-4">
+                        <i data-lucide="mountain" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Adventure</h3>
+                    <p class="text-muted-foreground">Trek through the Andes and explore ancient Incan sites</p>
+                </div>
+
+                <div class="bg-card border border-card-border rounded-lg p-6 text-center">
+                    <div class="inline-flex items-center justify-center w-12 h-12 rounded-md bg-primary/10 text-primary mb-4">
+                        <i data-lucide="users" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Community</h3>
+                    <p class="text-muted-foreground">Work on meaningful projects with local communities</p>
+                </div>
+
+                <div class="bg-card border border-card-border rounded-lg p-6 text-center">
+                    <div class="inline-flex items-center justify-center w-12 h-12 rounded-md bg-primary/10 text-primary mb-4">
+                        <i data-lucide="heart" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Personal Growth</h3>
+                    <p class="text-muted-foreground">Challenge myself and develop new skills</p>
+                </div>
+
+                <div class="bg-card border border-card-border rounded-lg p-6 text-center">
+                    <div class="inline-flex items-center justify-center w-12 h-12 rounded-md bg-primary/10 text-primary mb-4">
+                        <i data-lucide="compass" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Cultural Exchange</h3>
+                    <p class="text-muted-foreground">Immerse in Peruvian culture and traditions</p>
+                </div>
+            </div>
+
+            <!-- What Your Support Funds -->
+            <div class="mt-12 bg-accent/30 border border-accent-border rounded-md p-8">
+                <h3 class="text-2xl font-bold mb-4">What Your Support Funds</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <ul class="space-y-3 text-foreground">
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">•</span>
+                                <span>Expedition costs and travel arrangements</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">•</span>
+                                <span>Safety equipment and insurance</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">•</span>
+                                <span>Accommodation and meals during the trip</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul class="space-y-3 text-foreground">
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">•</span>
+                                <span>Community project materials and supplies</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">•</span>
+                                <span>Training and preparation programs</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-primary mr-2">•</span>
+                                <span>Cultural experiences and learning opportunities</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Tiers Section -->
+    <section class="py-20 bg-card">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4">Support My Journey</h2>
+                <p class="text-xl text-muted-foreground max-w-2xl mx-auto">
+                    Choose a support tier or order custom 3D prints. Every contribution brings me closer to Peru.
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <!-- Tier 1: Supporter -->
+                <div class="bg-background border border-card-border rounded-lg overflow-hidden hover-elevate">
+                    <div class="p-6">
+                        <div class="text-3xl font-bold mb-2">£10</div>
+                        <h3 class="text-xl font-semibold mb-1">Supporter</h3>
+                        <p class="text-muted-foreground mb-4">Every contribution helps</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-start text-sm">
+                                <i data-lucide="check" class="w-4 h-4 text-primary mr-2 mt-0.5"></i>
+                                <span>Thank you message</span>
+                            </li>
+                            <li class="flex items-start text-sm">
+                                <i data-lucide="check" class="w-4 h-4 text-primary mr-2 mt-0.5"></i>
+                                <span>Updates on my journey</span>
+                            </li>
+                        </ul>
+                        <button onclick="scrollToContact()" class="w-full border border-border bg-transparent text-foreground px-4 py-2 rounded-md font-semibold hover:bg-muted transition-colors">
+                            Support £10
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tier 2: Contributor -->
+                <div class="bg-background border border-card-border rounded-lg overflow-hidden hover-elevate">
+                    <div class="p-6">
+                        <div class="text-3xl font-bold mb-2">£25</div>
+                        <h3 class="text-xl font-semibold mb-1">Contributor</h3>
+                        <p class="text-muted-foreground mb-4">Covers supplies for one day</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-start text-sm">
+                                <i data-lucide="check" class="w-4 h-4 text-primary mr-2 mt-0.5"></i>
+                                <span>Thank you message</span>
+                            </li>
+                            <li class="flex items-start text-sm">
+                                <i data-lucide="check" class="w-4 h-4 text-primary mr-2 mt-0.5"></i>
+                                <span>Journey updates</span>
+                            </li>
+                            <li class="flex items-start text-sm">
+                                <i data-lucide="check" class="w-4 h-4 text-primary mr-2 mt-0.5"></i>
+                                <span>Photo postcard from Peru</span>
+                            </li>
+                        </ul>
+                        <button onclick="scrollToContact()" class="w-full border border-border bg-transparent text-foreground px-4 py-2 rounded-md font-semibold hover:bg-muted transition-colors">
+                            Support £25
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tier 3: Backer (Featured) -->
+                <div class="bg-background border-2 border-primary rounded-lg overflow-hidden hover-elevate">
+                    <div class="bg-primary text-primary-foreground text-center py-2 text-sm font-semibold">
+                        Most Popular
+                    </div>
+                    <div class="p-6">
+                        <div class="text-3xl font-bold mb-2">£50</div>
+                        <h3 class="text-xl font-semibold mb-1">Backer</h3>
+                        <p class="text-muted-foreground mb-4">Funds community project materials</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-start text-sm">
+                                <i data-lucide="check" class="w-4 h-4 text-primary mr-2 mt-0.5"></i>
+                                <span>All previous benefits</span>
+                            </li>
+                            <li class="flex items-start text-sm">
+                                <i data-lucide="check" class="w-4 h-4 text-primary mr-2 mt-0.5"></i>
+                                <span>Personalized video message</span>
+                            </li>
+                            <li class="flex items-start text-sm">
+                                <i data-lucide="check" class="w-4 h-4 text-primary mr-2 mt-0.5"></i>
+                                <span>Your name on thank you board</span>
+                            </li>
+                        </ul>
+                        <button onclick="scrollToContact()" class="w-full bg-primary text-primary-foreground px-4 py-2 rounded-md font-semibold hover:opacity-90 transition-opacity">
+                            Support £50
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Tier 4: Champion -->
+                <div class="bg-background border border-card-border rounded-lg overflow-hidden hover-elevate">
+                    <div class="p-6">
+                        <div class="text-3xl font-bold mb-2">£100</div>
+                        <h3 class="text-xl font-semibold mb-1">Champion</h3>
+                        <p class="text-muted-foreground mb-4">Major contribution to the expedition</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-start text-sm">
+                                <i data-lucide="check" class="w-4 h-4 text-primary mr-2 mt-0.5"></i>
+                                <span>All previous benefits</span>
+                            </li>
+                            <li class="flex items-start text-sm">
+                                <i data-lucide="check" class="w-4 h-4 text-primary mr-2 mt-0.5"></i>
+                                <span>Custom 3D printed souvenir</span>
+                            </li>
+                            <li class="flex items-start text-sm">
+                                <i data-lucide="check" class="w-4 h-4 text-primary mr-2 mt-0.5"></i>
+                                <span>Exclusive expedition photo album</span>
+                            </li>
+                        </ul>
+                        <button onclick="scrollToContact()" class="w-full border border-border bg-transparent text-foreground px-4 py-2 rounded-md font-semibold hover:bg-muted transition-colors">
+                            Support £100
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-2xl mx-auto bg-background border border-card-border rounded-lg p-6 text-center">
+                <h3 class="text-2xl font-bold mb-2">Custom Amount</h3>
+                <p class="text-muted-foreground">
+                    Want to contribute a different amount? Get in touch using the form below.
+                </p>
+            </div>
+        </div>
+      
+            <div class="max-w-2xl mx-auto bg-background border border-card-border rounded-lg p-6 text-center">
+                <h3 class="text-2xl font-bold mb-2">Or Scan this QR Code</h3>
+                <img src="attached_assets/stock_images/qr_code_placeholder.png" alt="QR Code" class="mx-auto h-48 w-48 object-contain">
+                <p class="text-muted-foreground">
+                    Scan to Donate!
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact Section -->
+    <section class="py-20 bg-background" id="contact">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="bg-card border border-card-border rounded-lg p-8">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold mb-2">Get In Touch</h2>
+                    <p class="text-base text-muted-foreground">
+                        Questions about 3D printing services, donations, or the Peru expedition? Reach out!
+                    </p>
+                </div>
+
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <!-- Email -->
+                    <a href="mailto:example@gmail.com" class="flex items-start gap-4 p-4 rounded-md border border-border hover-elevate">
+                        <div class="flex items-center justify-center w-10 h-10 rounded-md bg-primary/10 text-primary flex-shrink-0">
+                            <i data-lucide="mail" class="w-5 h-5"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-sm font-medium text-muted-foreground mb-1">Email</p>
+                            <p class="text-base font-semibold text-foreground break-words">example@gmail.com</p>
+                        </div>
+                    </a>
+
+                    <!-- Phone -->
+                    <a href="tel:07XXXXXXXXX" class="flex items-start gap-4 p-4 rounded-md border border-border hover-elevate">
+                        <div class="flex items-center justify-center w-10 h-10 rounded-md bg-primary/10 text-primary flex-shrink-0">
+                            <i data-lucide="phone" class="w-5 h-5"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-sm font-medium text-muted-foreground mb-1">Phone</p>
+                            <p class="text-base font-semibold text-foreground break-words">07XXX XXXXXX</p>
+                        </div>
+                    </a>
+
+                    <!-- Instagram -->
+                    <a href="https://instagram.com/example" target="_blank" rel="noopener noreferrer" class="flex items-start gap-4 p-4 rounded-md border border-border hover-elevate">
+                        <div class="flex items-center justify-center w-10 h-10 rounded-md bg-primary/10 text-primary flex-shrink-0">
+                            <i data-lucide="instagram" class="w-5 h-5"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-sm font-medium text-muted-foreground mb-1">Instagram</p>
+                            <p class="text-base font-semibold text-foreground break-words">@example</p>
+                        </div>
+                    </a>
+
+                    <!-- Facebook -->
+                    <a href="https://facebook.com/example" target="_blank" rel="noopener noreferrer" class="flex items-start gap-4 p-4 rounded-md border border-border hover-elevate">
+                        <div class="flex items-center justify-center w-10 h-10 rounded-md bg-primary/10 text-primary flex-shrink-0">
+                            <i data-lucide="facebook" class="w-5 h-5"></i>
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-sm font-medium text-muted-foreground mb-1">Facebook</p>
+                            <p class="text-base font-semibold text-foreground break-words">Example Name</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-card border-t border-card-border py-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Charlie's Fundraising</h3>
+                    <p class="text-muted-foreground">
+                        Supporting my World Challenge Peru expedition through custom 3D printing services.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-muted-foreground">
+                        <li>
+                            <a href="#about" class="hover:text-primary transition-colors">About the Journey</a>
+                        </li>
+                        <li>
+                            <a href="#services" class="hover:text-primary transition-colors">3D Printing Services</a>
+                        </li>
+                        <li>
+                            <a href="#contact" class="hover:text-primary transition-colors">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">World Challenge</h3>
+                    <p class="text-muted-foreground">
+                        World Challenge is a registered educational charity that provides life-changing expeditions for young people.
+                    </p>
+                </div>
+            </div>
+            <div class="border-t border-card-border pt-8 text-center text-muted-foreground">
+                <p class="flex items-center justify-center gap-2">
+                    Made with <i data-lucide="heart" class="w-4 h-4 text-primary fill-primary"></i> to support an amazing adventure
+                </p>
+                <p class="mt-2 text-sm">
+                    © <span id="current-year"></span> Charlie's Fundraising. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- JavaScript -->
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Smooth scroll to contact section
+        function scrollToContact() {
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Animate progress bar on scroll into view
+        const progressBar = document.getElementById('progress-bar');
+        const progressSection = document.getElementById('progress-section');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !progressBar.classList.contains('animated')) {
+                    progressBar.classList.add('animated');
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(progressSection);
+    </script>
+
+</body>
+</html>
